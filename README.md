@@ -8,3 +8,6 @@
 - [ ] Must have a polished frontend / UI
 - [ ] Must have folder structure that meets MVC Paradigm
 - [ ] Must meet good quality coding standards (indentation, scoping, naming)
+
+*Added 07-Oct*
+- [ ] Must have a solid testing framework in place
