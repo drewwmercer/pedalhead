@@ -1,7 +1,5 @@
 
-# Vehicle Maintenance Logger web app
-
-## Automotive/Cycling flows
+# Bicycle Maintenance Logger web app
 
 ## Regular Maintenance 
 * type 
@@ -25,8 +23,8 @@
 ## database
 
 table
- - vehicle types
- 
+ - owners
+
 table
  - vehicles
 
