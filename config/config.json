@@ -4,6 +4,7 @@
     "password": "root",
     "database": "bicycles",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": 8889
   }
 }
