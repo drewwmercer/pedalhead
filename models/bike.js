@@ -15,8 +15,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Bike.associate = function(models) {
-    // We're saying that a Post should belong to an Owner
-    // A Post can't be created without an Owner due to the foreign key constraint
+    // We're saying that a Bike should belong to an Owner
+    // A Bike can't be created without an Owner due to the foreign key constraint
     Bike.belongsTo(models.Owner, {
       foreignKey: {
         allowNull: false
