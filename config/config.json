@@ -6,5 +6,11 @@
     "host": "localhost",
     "dialect": "mysql",
     "port": 8889
+  },
+  {
+    "production": {
+      "use_env_variable": "JAWSDB_URL",
+      "dialect": "mysql"
+    }
   }
 }
