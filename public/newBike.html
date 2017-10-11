@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bicycle Maintenance Logger App</title>
+        <!-- Latest compiled and minified CSS & JS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Cantarell|Stalinist+One" rel="stylesheet">
+    </head>
+    <body id="XXXappBody">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav mr-auto" style="flex:1">
+                <a id="navBrand" href="./app" >PEDALHEAD</a>
+            </ul>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="flex: 0 1">
+                <button class="btn btn-stuff my-2 my-sm-0" href="#"type="submit">My Bikes</button>
+                <button class="btn btn-stuff my-2 my-sm-0" href="#" type="submit">Service</button>
+                <button class="btn btn-stuff my-2 my-sm-0" href="./app" type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 id="newRideText">ADD MY NEW RIDE!</h2>
+        <br>
+        <br>
+        <h4>Type of Bicycle...</h4>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bike Options
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" id="response1">Mountain</a>
+                                <a class="dropdown-item" id="response2">Road</a>
+                                <a class="dropdown-item" id="response3">BMX</a>
+                                <a class="dropdown-item" id="response4">Unicycle</a>
+                                <a class="dropdown-item" id="response5">Tandem</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <h4>Manufacturer</h4>
+                <br>
+                <input class="form-control form-control-lg" type="text" placeholder=# >
+                <br>
+                <h4>Model</h4>
+                <br>
+                <input class="form-control form-control-lg" type="text" placeholder=# >
+                <br>
+                
+            </div>
+        </div>
+        <div class="fixed-bottom">
+            <div class="container">
+                
+                <p>
+                    <a class="footText" href="/app.html">Home</a>
+                    |
+                    <a class="footText" href="api/tables">Bike Table Data</a>
+                </p>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
+        <script src="js/prog.js" type="text/javascript"></script>
+    </body>
+</html>
