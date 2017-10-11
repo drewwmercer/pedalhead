@@ -2,15 +2,14 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "bicycles",
+    "database": "pedalhead",
     "host": "localhost",
     "dialect": "mysql",
     "port": 8889
   },
-  {
     "production": {
       "use_env_variable": "JAWSDB_URL",
       "dialect": "mysql"
     }
-  }
+
 }
