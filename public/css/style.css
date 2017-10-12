@@ -1,3 +1,14 @@
+/* TO DO: update the cms references to point to the right place */
+#XXXappBody {
+  background-image: url(https://previews.123rf.com/images/pozitiw/pozitiw1305/pozitiw130500022/19483622-Chain-gears-Doodle-style-Stock-Vector-bicycle-bike-pedal.jpg);
+  background-color: rgba(255,255,255,0.6);
+  background-blend-mode: lighten;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+
 #appBody {
 
   background-image: url(http://forums.roadbikereview.com/attachments/lounge/289933d1387337356-collage-gift-warning-may-contain-bike-pr0n-bikes3.jpg);
