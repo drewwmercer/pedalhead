@@ -40,7 +40,7 @@ module.exports = function(app) {
     });
   });
 
-  // pose bike route for saving a new bike
+  // post bike route for saving a new bike
   app.post("/api/bikes", function(req, res) {
     db.bike.create(req.body).then(function(dbbike) {
       res.json(dbbike);
