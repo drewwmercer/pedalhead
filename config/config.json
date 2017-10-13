@@ -5,7 +5,7 @@
     "database": "pedalhead",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 8889
+    "port": 3306
   },
     "production": {
       "use_env_variable": "JAWSDB_URL",
