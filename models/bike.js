@@ -11,6 +11,9 @@ module.exports = function(sequelize, DataTypes) {
     bike_miles: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    purchase_date: {
+      type: DataTypes.DATEONLY,
     }
   });
 
