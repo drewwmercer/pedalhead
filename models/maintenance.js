@@ -13,15 +13,15 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Maintenance.associate = function(models) {
-    // We're saying that a Bike should belong to an Owner
-    // A Bike can't be created without an Owner due to the foreign key constraint
-    Maintenance.belongsTo(models.Bike, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Maintenance.associate = function(models) {
+  //   // We're saying that a Bike should belong to an Owner
+  //   // A Bike can't be created without an Owner due to the foreign key constraint
+  //   Maintenance.belongsTo(models.Bike, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return Maintenance;
 };
