@@ -1,6 +1,7 @@
 $(document).ready(function() {
     /* global moment */
-  
+    
+
     // appContainer holds all of our bikes
     var appContainer = $(".app-container");
     var bikeCategorySelect = $("#category");
@@ -137,6 +138,6 @@ $(document).ready(function() {
       "'>here</a> in order to get started.");
       blogContainer.append(messageh2);
     }
-  
+
   });
   
