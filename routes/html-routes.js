@@ -36,48 +36,18 @@ module.exports = function(app) {
   app.get('/my-garage', function(req, res) {
     db.Bike.findAll({}).then(function(bikeres) {
       res.render('mygarage', { bikes: bikeres });
-
-      // projects will be an array of Bike instances with the specified id
     });
-    //where: { id: '1' } }).then(bikes => {
-    // console.log(req.params);
-
-    // projects will be an array of Bike instances with the specified id
   });
-  // });
-  // var data = [
-  //   { owner_name: 'Bob Smith' },
-  //   {
-  //     bike_name: 'test bike 1',
-  //     bike_type: 'test bike type',
-  //     bike_miles: '3453'
-  //   },
-  //   {
-  //     bike_name: 'test bike 2',
-  //     bike_type: 'test bike type',
-  //     bike_miles: '33'
-  //   }
-  // ];
 
-  // db.query('SELECT * FROM bikes where id = ?', [1], function(err, data) {
-  //   if (err) {
-  //     return res.status(500).end();
-  //   }
+  // api/tables views all of the bikes json
+  app.get('/api/tables', function(req, res) {
+    db.Bike.findAll({}).then(function(bikedata) {
+      res.json(bikedata);
+    });
 
-  //   console.log(data);
-  //   res.render('mygarage', { bikes: data });
-  // });
-  // (function(err, data) {
-  //   if (err) {
-  //     return res.status(500).end();
-  //   }
-
-  // res.render('mygarage', { bikes: data });
-  //     });
-  //});
-
-  // authors route loads owner-manager.html
-  app.get('/service-manager', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/ServMngr.html'));
+    // authors route loads owner-manager.html
+    app.get('/service-manager', function(req, res) {
+      res.sendFile(path.join(__dirname, '../public/ServMngr.html'));
+    });
   });
 };
