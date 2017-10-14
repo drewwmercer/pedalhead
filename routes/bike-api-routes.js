@@ -7,6 +7,7 @@
 
 // Requiring our models
 var db = require('../models');
+const GoogleAuth = require('google-auth-library');
 
 // Routes
 // =============================================================
@@ -75,4 +76,30 @@ module.exports = function(app) {
         res.json(dbbike);
       });
   });
+
+
+    app.get('/api/auth', (req, res) => {
+      console.log('Attempting to auth');
+      const GOOGLE_CLIENT_ID = '349091180718-scvujbn59thrl1fo0q85au262el78o1g.apps.googleusercontent.com';
+      const auth = new GoogleAuth;
+      const client = new auth.OAuth2(GOOGLE_CLIENT_ID, '', '');
+      client.verifyIdToken(
+        req.query.token,
+        GOOGLE_CLIENT_ID,
+
+        function (error, login) {
+          if (error) {
+            console.error(error);
+
+            res.json({ error: error.message });
+            return;
+          }
+
+          const payload = login.getPayload();
+          payload.valid = true;
+
+          res.json(payload);
+        });
+
+    });
 };
