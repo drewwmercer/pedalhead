@@ -1,15 +1,5 @@
-# project-2
-*The requirements for Project #2 are as follows:*
-- [ ] Must use a Node and Express Web Server
-- [ ] Must be backed by a MySQL Database with a Sequelize ORM
-- [ ] Must have both GET and POST routes for retrieving and adding new data
-- [ ] Must be deployed using Heroku (with Data)
-- [ ] Must utilize at least one new library, package, or technology that we haven’t discussed
-- [ ] Must have a polished frontend / UI
-- [ ] Must have folder structure that meets MVC Paradigm
-- [ ] Must meet good quality coding standards (indentation, scoping, naming)
+# ![Icon](https://github.com/drewwmercer/project-2/blob/master/public/img/pedalhead-image.png) Pedalhead
+Pedalhead is an application for the busy cyclist who has more on their mind than gears and wrenches.
+* Owners can manage and plan bicycle repairs
 
-*Added 07-Oct*
-- [ ] Must have a solid testing framework in place
-
-Hello?
+View app live on [Heroku](https://pedalhead.herokuapp.com/)
