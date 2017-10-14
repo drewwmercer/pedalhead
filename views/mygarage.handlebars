@@ -1,0 +1,14 @@
+{{!-- My Garage View --}}
+
+<table>
+    {{#each Bike}}
+    <tr>
+        <td>{{dataValues.Owners.id}}</td>
+        <td>{{dataValues.Owners.FullName}}</td>
+        <td>{{dataValues.bike_name}}</td>
+        <td>{{dataValues.bike_type}}</td>
+        <td>{{dataValues.bike_miles}}</td>
+        <td>{{dataValues.purchase_date}}</td>
+    </tr>
+    {{/each}}
+</table>
