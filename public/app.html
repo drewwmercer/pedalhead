@@ -1,78 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="349091180718-scvujbn59thrl1fo0q85au262el78o1g.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <title>Bicycle Maintenance Logger App</title>
-    <!-- Latest compiled and minified CSS & JS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Cantarell|Stalinist+One" rel="stylesheet">
-  </head>
-  
-  <body id="appBody">
-    <div class="jumbotron jumbotron-fluid" id="Jtron">
-      <div class="container">
-        <h1 class="display-3" id="Pedalhead">PEDALHEAD</h1>
-        <div><p class="lead">An application for the busy cyclist who has more on their mind than gears and wrenches... </p>
-        
+   <head>
+      <meta charset="UTF-8">
+      <meta name="google-signin-scope" content="profile email">
+      <meta name="google-signin-client_id" content="349091180718-scvujbn59thrl1fo0q85au262el78o1g.apps.googleusercontent.com">
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <title>Bicycle Maintenance Logger App</title>
+      <!-- Latest compiled and minified CSS & JS -->
+      <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Cantarell|Stalinist+One" rel="stylesheet">
+   </head>
+   
+   <body id="appBody">
+      <div class="jumbotron jumbotron-fluid" id="Jtron">
+         <div class="container">
+            <h1 class="display-3" id="Pedalhead">PEDALHEAD</h1>
+            <div>
+               <p class="lead">An application for the busy cyclist who has more on their mind than gears and wrenches... </p>
+            
+         </div>
+      <div id="login-init">
+          <a href="/new-bike" class='button'>Add a Bike</a>
+          <a href="/my-garage" class='button'>My Garage</a>
       </div>
-    </div>
-    <a href="/new-bike" class='button'>New Bike</a>
-    <a href="/my-garage" class='button'>Old Bikes</a>
-  </div>
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      </div>
+   </div>
 </div>
 <!-- Custom Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
 <script src="js/app.js" type="text/javascript"></script>
 <script src="./js/authentication.js" type="text/javascript"></script>
-
 <!--The Modal-->
-<!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-<div class="modal-dialog">
-  <div class="loginmodal-container">
-    <h1>Login to Your Account</h1><br>
-
-    <form>
-      <input type="text" name="user" placeholder="Username">
-      <input type="password" name="pass" placeholder="Password">
-      <input type="submit" name="login" class="button" value="Login">
-    </form>
-    <div class="login-help">
-      <a href="#" id="logout">Logout</a> 
-    </div>
-  </div>
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+   <div class="modal-dialog">
+      <div class="loginmodal-container">
+         <h1 id="modal-"></h1><br>
+      </div>
+   </div>
 </div>
-</div> -->
-   <script>
-   
-      // function onSignIn(googleUser) {
-      //   // Useful data for your client-side scripts:
-      //   var profile = googleUser.getBasicProfile();
-      //   console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-      //   console.log('Full Name: ' + profile.getName());
-      //   console.log('Given Name: ' + profile.getGivenName());
-      //   console.log('Family Name: ' + profile.getFamilyName());
-      //   console.log("Image URL: " + profile.getImageUrl());
-      //   console.log("Email: " + profile.getEmail());
-
-      //   // The ID token you need to pass to your backend:
-      //   var id_token = googleUser.getAuthResponse().id_token;
-      //   console.log("ID Token: " + id_token);
-               
-      // };
-
-
-    </script>
 </body>
 </html>
-
-
-
-
-
