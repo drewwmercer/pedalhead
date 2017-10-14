@@ -1,14 +1,23 @@
 {{!-- My Garage View --}}
 
-<table>
-    {{#each Bike}}
+<table class="table table-sm table-inverse">
+    
+    <p><b>Owner:</b> {{owner_name}}</p>
+    
     <tr>
-        <td>{{dataValues.Owners.id}}</td>
-        <td>{{dataValues.Owners.FullName}}</td>
-        <td>{{dataValues.bike_name}}</td>
-        <td>{{dataValues.bike_type}}</td>
-        <td>{{dataValues.bike_miles}}</td>
-        <td>{{dataValues.purchase_date}}</td>
+        <th>Bike</th>
+        <th>Type</th>
+        <th>Current Miles</th>
+        <th>Purchase Date</th>
+    </tr>
+     {{#each bikes}}
+    <tr>
+        {{!-- <td>{{Owners.id}}</td>
+        <td>{{Owners.FullName}}</td> --}}
+        <td>{{bike_name}}</td>
+        <td>{{bike_type}}</td>
+        <td>{{bike_miles}}</td>
+      {{!--   <td>{{purchase_date}}</td> --}}
     </tr>
     {{/each}}
 </table>
