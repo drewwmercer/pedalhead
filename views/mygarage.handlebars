@@ -1,23 +1,30 @@
 {{!-- My Garage View --}}
+<div class="container">
+    <h2 id="newRideText" style="color: black font-weight: bold;">YOUR GARAGE...</h2>
+    <br>
+    <br>
 
-<table class="table table-sm table-inverse">
-    
-    <p><b>Owner:</b> {{owner_name}}</p>
-    
-    <tr>
-        <th>Bike</th>
-        <th>Type</th>
-        <th>Current Miles</th>
-        <th>Purchase Date</th>
-    </tr>
-     {{#each bikes}}
-    <tr>
-        {{!-- <td>{{Owners.id}}</td>
-        <td>{{Owners.FullName}}</td> --}}
-        <td>{{bike_name}}</td>
-        <td>{{bike_type}}</td>
-        <td>{{bike_miles}}</td>
-        <td>{{purchase_date}}</td>
-    </tr>
-    {{/each}}
-</table>
+    <table class="table table-sm table-inverse">
+
+        <p>
+            <b>Owner:</b> {{owner_name}}</p>
+
+        <tr>
+            <th>Bike</th>
+            <th>Type</th>
+            <th>Current Miles</th>
+            <th>Purchase Date</th>
+        </tr>
+        {{#each bikes}}
+        <tr>
+            {{!--
+            <td>{{Owners.id}}</td>
+            <td>{{Owners.FullName}}</td> --}}
+            <td>{{bike_name}}</td>
+            <td>{{bike_type}}</td>
+            <td>{{bike_miles}}</td>
+            <td>{{purchase_date}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
