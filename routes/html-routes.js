@@ -29,7 +29,8 @@ module.exports = function(app) {
 
   // adds a new bike to the database
   app.get('/new-bike', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/newBike.html'));
+    // res.sendFile(path.join(__dirname, '../public/newBike.html'));
+    res.render('newbike');
   });
 
   // my-garage views your current bikes
