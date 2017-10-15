@@ -50,4 +50,20 @@ module.exports = function(app) {
       res.sendFile(path.join(__dirname, '../public/ServMngr.html'));
     });
   });
+
+  // POST route for adding a new bike
+  app.post('/api/addnewbike', function(req, res) {
+    console.log(req.body);
+    db.bikes
+      .create({
+        bike_name: req.body.bikeName,
+        bike_type: req.body.bikeType,
+        purchase_date: req.body.purchaseDate,
+        OwnerId: 1
+      })
+      .then(function(dbBikeAdd) {
+        // We have access to the new burger as an argument inside of the callback function
+        res.json(dbBikeAdd);
+      });
+  });
 };
