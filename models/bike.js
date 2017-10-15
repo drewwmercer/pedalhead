@@ -2,18 +2,18 @@ module.exports = function(sequelize, DataTypes) {
   var Bike = sequelize.define('Bike', {
     bike_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     bike_type: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     bike_miles: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
     purchase_date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATEONLY
     }
   });
 
