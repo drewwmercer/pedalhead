@@ -1,0 +1,19 @@
+{{!-- New Bike View --}}
+<div class="container">
+    <h2 id="newRideText">ADD MY NEW RIDE!</h2>
+    <form class="create-form">
+        <input type="hidden" id="OwnerId" value="{{Expense.0.EmployeeId}}">
+        <div class="form-group">
+            <label for="exp">Make and Model:</label>
+            <input type="text" id="expName" name="bike_name">
+            <label for="date">Bike Type:</label>
+            <input type="text" id="date" name="bike_type">
+            <label for="duration">Miles:</label>
+            <input type="text" id="duration" name="bike_miles">
+            <label for="exp">Purchase Date:</label>
+            <input type="text" id="costType" name="purchase_date">
+        </div>
+
+        <button type="button" id="addBikeButton">Add Bike</button>
+    </form>
+</div>
