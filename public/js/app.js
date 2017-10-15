@@ -65,47 +65,66 @@ $(document).ready(function() {
     }
   
     // This function constructs a bike's HTML
-    function createNewRow(bike) {
-      var formattedDate = new Date(bike.createdAt);
-      formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-      var newBikePanel = $("<div>");
-      newBikePanel.addClass("panel panel-default");
-      var newBikePanelHeading = $("<div>");
-      newBikePanelHeading.addClass("panel-heading");
-      var deleteBtn = $("<button>");
-      deleteBtn.text("x");
-      deleteBtn.addClass("delete btn btn-danger");
-      var editBtn = $("<button>");
-      editBtn.text("EDIT");
-      editBtn.addClass("edit btn btn-info");
-      var newBikeTitle = $("<h2>");
-      var newBikeDate = $("<small>");
-      var newBikeOwner = $("<h5>");
-      newBikeOwner.text("Owned by: " + bike.Owner.name);
-      newBikeOwner.css({
-        float: "right",
-        color: "blue",
-        "margin-top":
-        "-10px"
-      });
-      var newBikePanelBody = $("<div>");
-      newBikePanelBody.addClass("panel-body");
-      var newBikeBody = $("<p>");
-      newBikeTitle.text(bike.title + " ");
-      newBikeBody.text(bike.body);
-      newBikeDate.text(formattedDate);
-      newBikeTitle.append(newBikeDate);
-      newBikePanelHeading.append(deleteBtn);
-      newBikePanelHeading.append(editBtn);
-      newBikePanelHeading.append(newBikeTitle);
-      newBikePanelHeading.append(newBikeOwner);
-      newBikePanelBody.append(newBikeBody);
-      newBikePanel.append(newBikePanelHeading);
-      newBikePanel.append(newBikePanelBody);
-      newBikePanel.data("bike", bike);
-      return newBikePanel;
-    }
+    // function createNewRow(bike) {
+    //   var formattedDate = new Date(bike.createdAt);
+    //   formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    //   var newBikePanel = $("<div>");
+    //   newBikePanel.addClass("panel panel-default");
+    //   var newBikePanelHeading = $("<div>");
+    //   newBikePanelHeading.addClass("panel-heading");
+    //   var deleteBtn = $("<button>");
+    //   deleteBtn.text("x");
+    //   deleteBtn.addClass("delete btn btn-danger");
+    //   var editBtn = $("<button>");
+    //   editBtn.text("EDIT");
+    //   editBtn.addClass("edit btn btn-info");
+    //   var newBikeTitle = $("<h2>");
+    //   var newBikeDate = $("<small>");
+    //   var newBikeOwner = $("<h5>");
+    //   newBikeOwner.text("Owned by: " + bike.Owner.name);
+    //   newBikeOwner.css({
+    //     float: "right",
+    //     color: "blue",
+    //     "margin-top":
+    //     "-10px"
+    //   });
+    //   var newBikePanelBody = $("<div>");
+    //   newBikePanelBody.addClass("panel-body");
+    //   var newBikeBody = $("<p>");
+    //   newBikeTitle.text(bike.title + " ");
+    //   newBikeBody.text(bike.body);
+    //   newBikeDate.text(formattedDate);
+    //   newBikeTitle.append(newBikeDate);
+    //   newBikePanelHeading.append(deleteBtn);
+    //   newBikePanelHeading.append(editBtn);
+    //   newBikePanelHeading.append(newBikeTitle);
+    //   newBikePanelHeading.append(newBikeOwner);
+    //   newBikePanelBody.append(newBikeBody);
+    //   newBikePanel.append(newBikePanelHeading);
+    //   newBikePanel.append(newBikePanelBody);
+    //   newBikePanel.data("bike", bike);
+    //   return newBikePanel;
+    // }
   
+    $('.create-form').on('submit', function(event) {
+      event.preventDefault();
+  
+      var newBike = {bikes: $('#ca').val()};
+  
+      $.ajax('/api/addnewbike', {
+        type: 'POST',
+        data: newBike
+      }).then(function() {
+        console.log('New bike was added');
+        location.reload();
+      });
+    });
+  });
+
+
+
+
+
     // This function figures out which bike we want to delete and then calls deleteBike
     function handleBikeDelete() {
       var currentBike = $(this)
