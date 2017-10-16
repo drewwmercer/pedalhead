@@ -1,6 +1,87 @@
+  //BEGIN USER AUTHENTICATION CODE
+
+
+    // This is automatically called via the onload parameter in the platform.js <script> tag.
+    function gapiInit() {
+
+        // Load the auth2 module into the Google API object.
+        gapi.load('auth2', function() {
+
+            console.log('Loaded auth2');
+            let googleUser;
+
+            // Init the auth2 module with our client ID
+            // https://developers.google.com/identity/sign-in/web/devconsole-project
+            const googleAuth = gapi.auth2.init({
+                client_id: '349091180718-scvujbn59thrl1fo0q85au262el78o1g.apps.googleusercontent.com'
+            });
+
+            // Wait until the auth module is finished loading via a Promise.
+            googleAuth.then(() => {
+
+                // The user may have gotten automatically signed-in via Google.
+                if (googleAuth.isSignedIn.get()) {
+                    console.log('User was logged in on page load.')
+                    validateUser(googleAuth.currentUser.get());
+                }
+
+                // Listen for changes in the user's signed-in status.
+                googleAuth.isSignedIn.listen((signedIn) => {
+                    if (signedIn) {
+                        console.log('User just signed in manually.');
+                        validateUser(googleAuth.currentUser.get());
+                    } else {
+                        console.log('User just signed out.');
+                    }
+                });
+            }, (error) => console.error(error));
+
+        });
+    }
+
+    const validateUser = (user) => {
+        console.log(`ID Token: ${user.getAuthResponse().id_token}`);
+
+        const profile = user.getBasicProfile();
+        console.log(`ID: ${profile.getId()}`);
+        console.log(`Name: ${profile.getName()}`);
+        console.log(`Email: ${profile.getEmail()}`);
+        console.log(`ImageUrl: ${profile.getImageUrl()}`);
+
+        // 1. Send the token to the backend...
+        // 2. so that we can use the google-auth-library to...
+        // 3. verify whether the info is valid or if a malicious user is spoofing a Google account.
+        $.get(`/api/auth?token=${user.getAuthResponse().id_token}`)
+            .then((response) => {
+                console.log('Response from /api/auth:', response);
+
+                if (response.valid) {
+                    // The 'sub' key should be the same as the Profile ID we printed out on line 5 here.
+                    $("#reserve-unique-id").val(response.sub);
+                } else {
+                    // The backend authetnication failed. The front-end user was trying to spoof
+                    // and impersonate a Google account.
+                    console.error(response.error);
+                }
+            });
+    };
+
+     function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+
+      //// END USER AUTHENTICATION CODE
+
+
+
+
 $(document).ready(function() {
     /* global moment */
-    
+    console.log("APP.JS CONNECTED"); 
+
 
     // appContainer holds all of our bikes
     var appContainer = $(".app-container");
@@ -64,50 +145,11 @@ $(document).ready(function() {
       appContainer.append(bikesToAdd);
     }
   
-    // This function constructs a bike's HTML
-    // function createNewRow(bike) {
-    //   var formattedDate = new Date(bike.createdAt);
-    //   formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    //   var newBikePanel = $("<div>");
-    //   newBikePanel.addClass("panel panel-default");
-    //   var newBikePanelHeading = $("<div>");
-    //   newBikePanelHeading.addClass("panel-heading");
-    //   var deleteBtn = $("<button>");
-    //   deleteBtn.text("x");
-    //   deleteBtn.addClass("delete btn btn-danger");
-    //   var editBtn = $("<button>");
-    //   editBtn.text("EDIT");
-    //   editBtn.addClass("edit btn btn-info");
-    //   var newBikeTitle = $("<h2>");
-    //   var newBikeDate = $("<small>");
-    //   var newBikeOwner = $("<h5>");
-    //   newBikeOwner.text("Owned by: " + bike.Owner.name);
-    //   newBikeOwner.css({
-    //     float: "right",
-    //     color: "blue",
-    //     "margin-top":
-    //     "-10px"
-    //   });
-    //   var newBikePanelBody = $("<div>");
-    //   newBikePanelBody.addClass("panel-body");
-    //   var newBikeBody = $("<p>");
-    //   newBikeTitle.text(bike.title + " ");
-    //   newBikeBody.text(bike.body);
-    //   newBikeDate.text(formattedDate);
-    //   newBikeTitle.append(newBikeDate);
-    //   newBikePanelHeading.append(deleteBtn);
-    //   newBikePanelHeading.append(editBtn);
-    //   newBikePanelHeading.append(newBikeTitle);
-    //   newBikePanelHeading.append(newBikeOwner);
-    //   newBikePanelBody.append(newBikeBody);
-    //   newBikePanel.append(newBikePanelHeading);
-    //   newBikePanel.append(newBikePanelBody);
-    //   newBikePanel.data("bike", bike);
-    //   return newBikePanel;
-    // }
+
   
-    $('.create-form').on('submit', function(event) {
+  $('#addBikeButton').on('click', function(event) {
       event.preventDefault();
+      alert("Hey the button worked!"); 
   
       var newBike = {bikes: $('#ca').val()};
   
@@ -119,10 +161,6 @@ $(document).ready(function() {
         location.reload();
       });
     });
-  });
-
-
-
 
 
     // This function figures out which bike we want to delete and then calls deleteBike
