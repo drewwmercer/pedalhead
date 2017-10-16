@@ -168,7 +168,12 @@ $(document).ready(function() {
       event.preventDefault();
       alert("Hey the button worked!"); 
   
-      var newBike = {bikes: $('#ca').val()};
+      var newBike = {
+        bike_name: $('#bike_name').val(),
+        bike_type: $('#bike_type').val(),
+        bike_miles: $('#bike_miles').val(),
+        purchase_date: $('#purchase_date').val()
+      };
   
       $.ajax('/api/addnewbike', {
         type: 'POST',
