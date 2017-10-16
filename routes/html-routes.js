@@ -22,7 +22,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, '../public/app.html'));
   });
 
-  // authors route loads owner-manager.html
+  // owners route loads owner-manager.html
   app.get('/owners', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/owner-list.html'));
   });
@@ -40,27 +40,34 @@ module.exports = function(app) {
     });
   });
 
-  // api/tables views all of the bikes json
+  // api/tables views all of the data as json
   app.get('/api/tables', function(req, res) {
     db.Bike.findAll({}).then(function(bikedata) {
       res.json(bikedata);
+      
     });
-
+    db.Owner.findAll({}).then(function(ownerdata) {
+      res.json(ownerdata);
+    });
+  });
     // authors route loads owner-manager.html
     app.get('/service-manager', function(req, res) {
       res.sendFile(path.join(__dirname, '../public/ServMngr.html'));
     });
-  });
+  
 
   // POST route for adding a new bike
   app.post('/api/addnewbike', function(req, res) {
     console.log(req.body);
-    db.bikes
+    db.Bikes
       .create({
-        bike_name: req.body.bikeName,
-        bike_type: req.body.bikeType,
-        purchase_date: req.body.purchaseDate,
-        OwnerId: 1
+        bike_name: req.body.bike_name,
+        bike_type: req.body.bike_type,
+        purchase_date: purchase_date,
+        OwnerId: auth2.currentUser
+          .get()
+          .getBasicProfile()
+          .profile.getId()
       })
       .then(function(dbBikeAdd) {
         // We have access to the new burger as an argument inside of the callback function
@@ -68,3 +75,4 @@ module.exports = function(app) {
       });
   });
 };
+
