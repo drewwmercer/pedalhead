@@ -95,9 +95,7 @@ $(document).ready(function() {
   // appContainer holds all of our bikes
   var appContainer = $('.app-container');
   var bikeCategorySelect = $('#category');
-  // Click events for the edit and delete buttons
-  $(document).on('click', 'button.delete', handleBikeDelete);
-  $(document).on('click', 'button.edit', handleBikeEdit);
+
   // Variable to hold our bikes
   var bikes;
 
@@ -127,16 +125,6 @@ $(document).ready(function() {
       } else {
         initializeRows();
       }
-    });
-  }
-
-  // This function does an API call to delete bikes
-  function deleteBike(id) {
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/bikes/' + id
-    }).done(function() {
-      getBikes(bikeCategorySelect.val());
     });
   }
 
