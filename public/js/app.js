@@ -76,6 +76,23 @@
       //// END USER AUTHENTICATION CODE
 
 
+// Former prog.js code start
+// ============================
+var Response = document.getElementById('response');
+
+var Input = document.getElementById('yourInput');
+
+
+$(".dropdown-item").on("click", function() {
+    console.log($(this).text());
+
+    var Option = $(this).text();
+
+    $("#dropdownMenu2").text(Option);
+});
+// ============================
+// Former prog.js code end
+
 
 
 $(document).ready(function() {
