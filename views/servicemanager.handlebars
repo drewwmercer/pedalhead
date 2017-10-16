@@ -1,1 +1,204 @@
 {{!-- Service Manager View --}}
+<div class="container">
+    <h2 id="newRideText">SERVICE MANAGER</h2>
+    <br>
+    <br>
+    <h3>Bike Placeholder</h3>
+    <br>
+    <h4>Complete Service History</h4>
+    <br>
+    <table class="table table-sm table-inverse">
+
+        <p>
+            <b>Owner:</b> {{owner_name}}</p>
+        <thead>
+            <tr>
+                <th>Bike Description</th>
+                <th>Type</th>
+                <th>Current Miles</th>
+                <th>Purchase Date</th>
+                <th>Last Service</th>
+                <th>Services</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <h3>So what sort of service is your bike in need of?</h3>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <h4>Date of Service</h4>
+            <input class="form-control form-control-lg" type="text" placeholder=mm/dd/yyyy>
+            <br>
+            <h4>Work Performed</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Break In Tune Up
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Tune Up
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Complete Overhaul
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Tires (New/Replace)
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Spoke/Hub Repair or Replace
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Chain Rpair or Replace
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Chain Adjustment/Lube
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Gear Adjustment
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Gear Repair or Replacement
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Derailer Repair or Replacement
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Brakes: New
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Brakes: Adjustment
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Headset Repair or Adjustment
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Suspension Adjustment
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Suspension Repair or Replace
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Accessories: Install or Repair
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    <input class="form-control form-control-sm" type="text" placeholder=O ther>
+                </label>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <button type="button" class="btn btn-secondary btn-md">Submit</button>
