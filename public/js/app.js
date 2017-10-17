@@ -55,7 +55,7 @@ const validateUser = user => {
 
     if (response.valid) {
       // The 'sub' key should be the same as the Profile ID we printed out on line 5 here.
-      $('#reserve-unique-id').val(response.sub);
+      $('#ownerId').data(response.sub);
     } else {
       // The backend authetnication failed. The front-end user was trying to spoof
       // and impersonate a Google account.
@@ -130,13 +130,15 @@ $(document).ready(function() {
 
   $('#addBikeButton').on('click', function(event) {
     event.preventDefault();
-    alert('Hey the button worked!');
+    // alert('Hey the button worked!');
 
     var newBike = {
       bike_name: $('#bike_name').val(),
       bike_type: $('#bike_type').val(),
       bike_miles: $('#bike_miles').val(),
-      purchase_date: $('#purchase_date').val()
+      purchase_date: $('#purchase_date').val(),
+      owner_name: "Julianne Gonski", 
+      owner_token: $("#ownerId").data()
     };
 
     $.ajax('/api/addnewbike', {

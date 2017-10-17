@@ -19,7 +19,7 @@ module.exports = function(app) {
       query.OwnerId = req.query.owner_id;
     }
     // 1. Add a join here to include all of the Owners to these bikes
-    db.bike
+    db.Bike
       .findAll({
         where: query,
         include: [db.Owner]
@@ -32,7 +32,7 @@ module.exports = function(app) {
   // Get rotue for retrieving a single bike
   app.get('/api/bikes/:id', function(req, res) {
     // 2. Add a join here to include the Owner who owns the bike
-    db.bike
+    db.Bike
       .findOne({
         where: {
           id: req.params.id
@@ -42,18 +42,18 @@ module.exports = function(app) {
         console.log(dbbike);
         res.json(dbbike);
       });
-  });
+  }); 
 
   // post bike route for saving a new bike
   app.post('/api/bikes', function(req, res) {
-    db.bike.create(req.body).then(function(dbbike) {
+    db.Bike.create(req.body).then(function(dbbike) {
       res.json(dbbike);
     });
   });
 
   // DELETE route for deleting bikes
   app.delete('/api/bikes/:id', function(req, res) {
-    db.bike
+    db.Bike
       .destroy({
         where: {
           id: req.params.id
@@ -66,7 +66,7 @@ module.exports = function(app) {
 
   // PUT route for updating bikes
   app.put('/api/bikes', function(req, res) {
-    db.bike
+    db.Bike
       .update(req.body, {
         where: {
           id: req.body.id
