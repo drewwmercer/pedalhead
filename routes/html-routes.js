@@ -6,6 +6,7 @@
 // =============================================================
 var path = require('path');
 var db = require('../models');
+const GoogleAuth = require('google-auth-library');
 
 // Routes
 // =============================================================
@@ -47,14 +48,14 @@ module.exports = function(app) {
 
   // my-garage views your current bikes
   app.get('/my-garage', function(req, res) {
-    db.Bike
-      .findAll({
-        include: [{ model: db.Owner }]
-        // where: {OwnerId: 1}}).then(function(bikeres) {
-      })
-      .then(function(bikeres) {
-        res.render('mygarage', { bikes: bikeres });
-      });
+    googleAuth(req, res, function(req, res, err, login) {
+      res.render(
+        'mygarage',
+        db.Bike.findAll({
+          where: { user_token: user.id_token }
+        })
+      );
+    });
   });
 
   // api/tables views all of the data as json
@@ -63,9 +64,9 @@ module.exports = function(app) {
       res.json(bikedata);
     });
   });
+
   // authors route loads owner-manager.html
   app.get('/service-manager', function(req, res) {
-    //res.sendFile(path.join(__dirname, '../public/ServMngr.html'));
     res.render('servicemanager');
   });
 
