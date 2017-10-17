@@ -10,7 +10,19 @@ var db = require('../models');
 // Routes
 // =============================================================
 module.exports = function(app) {
-  // Each of the below routes just handles the HTML page that the user gets sent to.
+  function googleAuth(req, res, callback) {
+    console.log('Attempting to auth');
+    const GOOGLE_CLIENT_ID =
+      '349091180718-scvujbn59thrl1fo0q85au262el78o1g.apps.googleusercontent.com';
+    const auth = new GoogleAuth();
+    const client = new auth.OAuth2(GOOGLE_CLIENT_ID, '', '');
+    client.verifyIdToken(req.query.token, GOOGLE_CLIENT_ID, function(
+      err,
+      login
+    ) {
+      callback(req, res, err, login);
+    });
+  }
 
   // index route loads app.html
   app.get('/', function(req, res) {
