@@ -17,12 +17,25 @@ module.exports = function(app) {
       '349091180718-scvujbn59thrl1fo0q85au262el78o1g.apps.googleusercontent.com';
     const auth = new GoogleAuth();
     const client = new auth.OAuth2(GOOGLE_CLIENT_ID, '', '');
-    client.verifyIdToken(req.query.token, GOOGLE_CLIENT_ID, function(
-      err,
-      login
-    ) {
-      callback(req, res, err, login);
-    });
+    const verifyToken = new Promise(function(resolve, reject){
+      client.verifyIdToken(
+          token,
+          GOOGLE_CLIENT_ID,
+          function (e, login){
+             if (login) {
+                 var payload = login.getPayload();
+                 var googleId = payload['sub'];
+                 resolve(googleId);
+             } else {
+              reject("invalid token");
+             }
+          }
+      )
+  }).then(function(googleId){
+      //use googleId here
+  }).catch(function(err){
+      //error
+  })
   }
 
   // index route loads app.html
@@ -35,12 +48,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, '../public/app.html'));
   });
 
-  // owners route loads owner-manager.html
-  app.get('/owners', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/owner-list.html'));
-  });
-
-  // adds a new bike to the database
+  // new-bike adds a page for adding a new bike to the database
   app.get('/new-bike', function(req, res) {
     // res.sendFile(path.join(__dirname, '../public/newBike.html'));
     res.render('newbike');
@@ -49,12 +57,22 @@ module.exports = function(app) {
   // my-garage views your current bikes
   app.get('/my-garage', function(req, res) {
     googleAuth(req, res, function(req, res, err, login) {
-      res.render(
-        'mygarage',
-        db.Bike.findAll({
-          where: { user_token: user.id_token }
+      db.Bike
+        .findAll({
+          where: {
+            owner_token:
+              'eyJhbGciOiJSUzI1NiIsImtpZCI6IjJiM2UyOGVmOWNhY2JkZTUyZjQzOTFiNDgxNjc4ZmE2ZGRiYzM3YjEifQ.eyJhenAiOiIzNDkwOTExODA3MTgtc2N2dWpibjU5dGhybDFmbzBxODVhdTI2MmVsNzhvMWcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIzNDkwOTExODA3MTgtc2N2dWpibjU5dGhybDFmbzBxODVhdTI2'
+          }
         })
-      );
+        .then(function(bikeres) {
+          res.render('mygarage', { bikes: bikeres });
+        });
+      //   res.json(bikedata);
+
+      // res.render(
+      //   'mygarage',
+      //   db.Bike.findAll({
+      //     where: { user_token: req.id_token }
     });
   });
 
