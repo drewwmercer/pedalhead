@@ -18,3 +18,19 @@
         <button type="button" id="addBikeButton">Add Bike</button>
     </form>
 </div>
+<script>
+    var date = document.getElementById("purchase_date");
+    var bt = document.getElementById("addBikeButton");
+
+    date.addEventListener("input", function () {
+        var d = new Date(date.value);
+
+        if (date.value !== '') {
+            if (d !== 'Invalid Date' && d >= new Date("01-JAN-1900") && date.value.length == 11) {
+                bt.removeAttribute("disabled");
+            } else {
+                bt.setAttribute("disabled", "");
+            }
+        }
+    });
+</script>
