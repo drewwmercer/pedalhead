@@ -71,7 +71,7 @@ module.exports = function(app) {
     }
 
 
-    db.Bike.create().then(function(dbbike) {
+    db.Bike.create(data).then(function(dbbike) {
       res.json(dbbike);
     });
   });
