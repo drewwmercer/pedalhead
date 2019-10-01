@@ -5,7 +5,8 @@
     "database": "pedalhead",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 8889
+    "port": 8889,
+    "operatorsAliases": "false"
   },
   "production": {
     "username": "ommac7fddq2778us",
