@@ -137,16 +137,49 @@ $(document).ready(function() {
       bike_type: $('#bike_type').val(),
       bike_miles: $('#bike_miles').val(),
       purchase_date: $('#purchase_date').val(),
-      owner_name: "Julianne Gonski", 
-      owner_token: $("#ownerId").data()
+      owner_name: 'Julianne Gonski',
+      owner_token: $('#ownerId').data()
     };
 
-    $.ajax('/api/addnewbike', {
-      type: 'POST',
-      data: newBike
-    }).then(function(result) {
-      console.log('New bike was added');
-      location.reload();
-    });
+    if (purchaseDateValidation()) {
+      $.ajax('/api/addnewbike', {
+        type: 'POST',
+        data: newBike
+      }).then(function(result) {
+        console.log('New bike was added');
+        location.reload();
+      });
+    }
+
+    // Check if entered purchase date is valid
+    function purchaseDateValidation() {
+      // Get text from purchase date field
+      var bikePurchaseDate = $('#purchase_date').val();
+
+      // Set minimum date allowed to be 1/1/1900
+      var min_allowed_date = new Date('1-1-1900');
+      var min_allowed_date_month = min_allowed_date.getMonth() + 1;
+      var min_allowed_date_day = min_allowed_date.getDay();
+      var min_allowed_date_year = min_allowed_date.getFullYear();
+
+      // Format minimum date allowed
+      var min_date = new Date(
+        min_allowed_date_year,
+        min_allowed_date_month,
+        min_allowed_date_day
+      );
+
+      // Convert text to date format
+      var entered_purchase_date = new Date(bikePurchaseDate.text);
+
+      // Check user entered date vs minimum allowed date
+      if (entered_purchase_date < min_date || isNaN(entered_purchase_date)) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    purchaseDateValidation();
   });
 });
