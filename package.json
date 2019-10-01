@@ -27,7 +27,6 @@
     "express-handlebars": "^3.0.0",
     "google-auth-library": "^0.11.0",
     "handlebars": "^4.0.10",
-    "mocha": "^4.0.1",
     "mysql": "^2.15.0",
     "mysql2": "^1.4.2",
     "sequelize": "^4.13.5"
