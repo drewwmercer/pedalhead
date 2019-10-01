@@ -5,32 +5,16 @@
         <input type="hidden" id="OwnerId" value="profile.getId()">
         <div class="form-group">
             <label for="bike">Make and Model:</label>
-            <input type="text" id="bike_name">
+            <input type="text" id="bike_name" required>
             <label for="type">Bike Type:</label>
-            <input type="text" id="bike_type">
+            <input type="text" id="bike_type" required>
             <label for="mileage">Miles:</label>
-            <input type="text" id="bike_miles">
+            <input type="text" id="bike_miles" required>
             <label for="purchase">Purchase Date:</label>
-            <input type="text" id="purchase_date">
+            <input type="text" id="purchase_date" required>
             <div id="ownerId"></div>
         </div>
 
         <button type="button" id="addBikeButton">Add Bike</button>
     </form>
 </div>
-<script>
-    var date = document.getElementById("purchase_date");
-    var bt = document.getElementById("addBikeButton");
-
-    date.addEventListener("input", function () {
-        var d = new Date(date.value);
-
-        if (date.value !== '') {
-            if (d !== 'Invalid Date' && d >= new Date("01-JAN-1900") && date.value.length == 11) {
-                bt.removeAttribute("disabled");
-            } else {
-                bt.setAttribute("disabled", "");
-            }
-        }
-    });
-</script>

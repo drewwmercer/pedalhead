@@ -46,7 +46,32 @@ module.exports = function(app) {
 
   // post bike route for saving a new bike
   app.post('/api/bikes', function(req, res) {
-    db.Bike.create(req.body).then(function(dbbike) {
+
+    const data = req.body ;
+
+    const validator =  function isPositiveInteger (x) {
+      // Is it a number?
+      return Object.prototype.toString.call(x) === '[object Number]' &&
+        // Is it an integer?
+        x % 1 === 0 &&
+        // Is it positive?
+        x > 0
+    }
+
+    if(data == null){
+
+      return res.status(400).json({status : false , message : 'Bad request'});
+
+    }
+
+    if(data && !validator(data.bike_miles)){
+
+      return res.status(400).json({status : false , message : 'Bad request : Please check : bike_miles'});
+
+    }
+
+
+    db.Bike.create(data).then(function(dbbike) {
       res.json(dbbike);
     });
   });
