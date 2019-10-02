@@ -299,3 +299,16 @@ a.header-link:hover {
 .container2 {
   margin-top: 35px;
 }
+
+.error {
+  color: red;
+  background: rgba(255, 0, 0, 0.171);
+  width: 500px;
+  min-height: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.hide {
+  display: none;
+}

@@ -129,9 +129,7 @@ $(document).ready(function() {
   }
 
   $('#addBikeButton').on('click', function(event) {
-    event.preventDefault();
-    // alert('Hey the button worked!');
-
+    var errorDiv = $('#error');
     var newBike = {
       bike_name: $('#bike_name').val(),
       bike_type: $('#bike_type').val(),
@@ -140,7 +138,17 @@ $(document).ready(function() {
       owner_name: "Julianne Gonski", 
       owner_token: $("#ownerId").data()
     };
+    var validate = isValid(newBike);
 
+    if(!validate.valid) {
+      errorDiv.addClass('error').removeClass('hide');
+      var errors = '';
+      validate.messages.forEach(message => {
+        errors += `<p>${message}</p>`
+      });
+      return errorDiv.html(errors);
+    }
+    errorDiv.addClass('hide').removeClass('error');
     $.ajax('/api/addnewbike', {
       type: 'POST',
       data: newBike
@@ -150,3 +158,17 @@ $(document).ready(function() {
     });
   });
 });
+
+const isValid = value => {
+  let data = {
+    valid: true,
+    messages: []
+  };
+  for(var key in value) {
+    if(value[key] === "") {
+      data['valid'] = false;
+      data['messages'].push(`${key} is required`);
+    }
+  }
+  return data;
+}
