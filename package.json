@@ -20,6 +20,7 @@
     "url": "https://github.com/drewwmercer/project-2/issues"
   },
   "homepage": "https://github.com/drewwmercer/project-2#readme",
+  "stack": "heroku-20",
   "dependencies": {
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
