@@ -25,7 +25,7 @@
     "body-parser": "^1.20.4",
     "chai": "^4.1.2",
     "express": "^4.22.1",
-    "express-handlebars": "^5.3.1",
+    "express-handlebars": "^8.0.6",
     "google-auth-library": "^8.7.0",
     "handlebars": "^4.7.7",
     "mysql": "^2.18.0",
