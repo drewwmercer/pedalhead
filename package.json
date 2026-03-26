@@ -27,7 +27,7 @@
     "express": "^4.22.1",
     "express-handlebars": "^8.0.6",
     "google-auth-library": "^8.7.0",
-    "handlebars": "^4.7.7",
+    "handlebars": "^4.7.9",
     "mysql": "^2.18.0",
     "mysql2": "^3.9.8",
     "npm-check-updates": "^19.3.1",
