@@ -22,9 +22,9 @@
   "homepage": "https://github.com/drewwmercer/project-2#readme",
   "stack": "heroku-20",
   "dependencies": {
-    "body-parser": "^1.20.6",
+    "body-parser": "^2.3.0",
     "chai": "^4.1.2",
-    "express": "^4.22.2",
+    "express": "^5.2.1",
     "express-handlebars": "^8.0.6",
     "google-auth-library": "^8.7.0",
     "handlebars": "^4.7.9",
